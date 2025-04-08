@@ -1,0 +1,135 @@
+// Typography
+// ------------------------------
+h1, .h1 {
+  font-size: 8rem;
+  margin-bottom: 1.6rem;
+}
+
+h2, .h2 {
+  font-size: 4rem;
+  margin-bottom: 1.6rem;
+}
+
+h3, .h3 {
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
+
+  &.larger {
+    font-size: 5.5rem;
+  }
+}
+
+h4, .h4 {
+  font-size: 2rem;
+  margin-bottom: 1.6rem;
+}
+h5, .h5 {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+}
+
+// Flexible Grid System
+// ------------------------------
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; // optional spacing between columns
+
+  > .col {
+    flex: 1 1 0%;
+  }
+}
+
+// Sections
+// ------------------------------
+section {
+  display: flex;
+
+  &:has(> .row), {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &:not(.hero) {
+    padding: 4rem 0;
+  }
+
+  &.hero {
+    padding: 14rem 0;
+  }
+}
+
+
+
+.hero {
+  background: linear-gradient(rgba(19,19,19, .7), rgba(19,19,19, .7)), url(../images/main-hero.png) no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  min-height: 73.6rem;
+
+  > .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bc-shirt-hat {
+    max-width: 14rem;
+    max-height: 14rem;
+    margin: auto;
+  }
+
+  .lead {
+    font-size: 1.8rem;
+    font-weight: 700;
+    max-width: 35rem;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    line-height: 1;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.services {
+
+  h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .col {
+    text-align: center;
+    max-width: 21.6rem;
+    gap: 3.2rem;
+  }
+
+  img {
+    border-radius: 50%;
+  }
+}
+
+.testimonials {
+  background-color: #131313;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
