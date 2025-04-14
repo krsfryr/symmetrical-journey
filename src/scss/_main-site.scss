@@ -62,7 +62,7 @@ section {
 
 
 .hero {
-  background: linear-gradient(rgba(19,19,19, .7), rgba(19,19,19, .7)), url(../images/main-hero.png) no-repeat center center/cover;
+  background: linear-gradient(rgba(19,19,19, .7), rgba(19,19,19, .7)), url(../images/main-hero.jpg) no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,6 +100,8 @@ section {
 
 .services {
 
+  gap: 1rem;
+
   h2 {
     text-align: center;
     margin-bottom: 4rem;
@@ -110,12 +112,15 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
+    gap: 4rem;
   }
 
   .col {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     max-width: 21.6rem;
-    gap: 3.2rem;
+    gap: 1.2rem;
   }
 
   img {
