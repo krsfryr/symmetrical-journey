@@ -1,0 +1,109 @@
+// ---------------------------------------------
+// Flexible Grid System SCSS
+// ---------------------------------------------
+
+// -----------------------------
+// Configuration
+// -----------------------------
+$grid-gap: 2rem;
+$row-gap: 4rem;
+$max-columns: 12;
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px
+);
+$container-max-width: 980px;
+
+// -----------------------------
+// Container
+// -----------------------------
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+// -----------------------------
+// Base Row and Col
+// -----------------------------
+.row {
+  display: grid;
+  gap: $grid-gap;
+  grid-template-columns: 1fr; // stack on mobile
+  align-items: stretch;
+}
+
+@media (min-width: map-get($breakpoints, md)) {
+  .row {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  }
+}
+
+// Optional: Reversed row
+.row-reverse {
+  direction: rtl;
+  > .col {
+    direction: ltr;
+  }
+}
+
+// -----------------------------
+// Column Base
+// -----------------------------
+.col {
+  grid-column: span 1;
+}
+
+// Default Spans
+@for $i from 2 through $max-columns {
+  .span-#{$i} {
+    grid-column: span #{$i};
+  }
+}
+
+// Responsive Spans
+@each $break, $size in $breakpoints {
+  @media (min-width: #{$size}) {
+    @for $i from 2 through $max-columns {
+      .span-#{$i}-#{$break} {
+        grid-column: span #{$i};
+      }
+    }
+  }
+}
+
+// -----------------------------
+// Row Column Count Utilities
+// -----------------------------
+@for $cols from 1 through $max-columns {
+  .row-cols-#{$cols} {
+    grid-template-columns: repeat(#{$cols}, 1fr);
+  }
+}
+
+@each $break, $size in $breakpoints {
+  @media (min-width: #{$size}) {
+    @for $cols from 1 through $max-columns {
+      .row-cols-#{$cols}-#{$break} {
+        grid-template-columns: repeat(#{$cols}, 1fr);
+      }
+    }
+  }
+}
+
+// -----------------------------
+// Vertical Alignment Utilities
+// -----------------------------
+.row.align-start    { align-items: start; }
+.row.align-center   { align-items: center; }
+.row.align-end      { align-items: end; }
+.row.align-stretch  { align-items: stretch; }
+
+.row.row-py {
+    padding-top: $row-gap;
+    padding-bottom: $row-gap;
+}
