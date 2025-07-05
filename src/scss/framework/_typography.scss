@@ -1,0 +1,294 @@
+// Knit CSS Framework - Typography System
+// Mobile-first responsive typography with CSS variables
+
+@use './root-styles' as *;
+
+// Base typography settings
+:root, html {
+    font-size: 62.5%;
+}
+
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--text-color-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--text-color-primary);
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+
+h1, .h1 {
+  font-size: var(--h1-size);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h2, .h2 {
+  font-size: var(--h2-size);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3, .h3 {
+  font-size: var(--h3-size);
+}
+
+h4, .h4 {
+  font-size: var(--h4-size);
+}
+
+h5, .h5 {
+  font-size: var(--h5-size);
+}
+
+h6, .h6 {
+  font-size: var(--h6-size);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+// Responsive heading sizes
+@media (min-width: map-get($breakpoints, md)) {
+  :root {
+    --h1-size: var(--font-size-5xl);
+    --h2-size: var(--font-size-4xl);
+    --h3-size: var(--font-size-2xl);
+    --h4-size: var(--font-size-xl);
+    --h5-size: var(--font-size-lg);
+    --h6-size: var(--font-size-base);
+  }
+}
+
+@media (min-width: map-get($breakpoints, lg)) {
+  :root {
+    --h1-size: var(--font-size-6xl);
+    --h2-size: var(--font-size-5xl);
+    --h3-size: var(--font-size-3xl);
+    --h4-size: var(--font-size-2xl);
+    --h5-size: var(--font-size-xl);
+    --h6-size: var(--font-size-lg);
+  }
+}
+
+// Paragraph and text elements
+p {
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+
+// Lead text
+.lead {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-color-secondary);
+}
+
+// Small text
+small, .small {
+  font-size: var(--font-size-sm);
+  color: var(--text-color-muted);
+}
+
+// Text utilities
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+.text-6xl { font-size: var(--font-size-6xl); }
+
+// Font weight utilities
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+// Line height utilities
+.leading-none { line-height: var(--line-height-none); }
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
+
+// Letter spacing utilities
+.tracking-tighter { letter-spacing: var(--letter-spacing-tighter); }
+.tracking-tight { letter-spacing: var(--letter-spacing-tight); }
+.tracking-normal { letter-spacing: var(--letter-spacing-normal); }
+.tracking-wide { letter-spacing: var(--letter-spacing-wide); }
+.tracking-wider { letter-spacing: var(--letter-spacing-wider); }
+.tracking-widest { letter-spacing: var(--letter-spacing-widest); }
+
+// Text color utilities
+.text-primary { color: var(--text-color-primary); }
+.text-secondary { color: var(--text-color-secondary); }
+.text-muted { color: var(--text-color-muted); }
+.text-inverse { color: var(--text-color-inverse); }
+
+// Text alignment utilities
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text transform utilities
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+// Text decoration utilities
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+// Links
+a {
+  color: var(--text-color-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--text-color-link-hover);
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.25em;
+}
+
+// Unstyled list
+.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+// Inline list
+.list-inline {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    display: inline-block;
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
+}
+
+// Blockquotes
+blockquote {
+  margin: 1.5em 0;
+  padding-left: 1.5em;
+  border-left: 4px solid var(--text-color-muted);
+  font-size: var(--font-size-lg);
+  font-style: italic;
+  color: var(--text-color-secondary);
+}
+
+// Code
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background-color: #f3f4f6;
+  padding: 0.125em 0.25em;
+  border-radius: 0.25rem;
+  color: var(--text-color-primary);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  background-color: #f3f4f6;
+  padding: 1em;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1em 0;
+
+  code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+// Forms
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  input,
+  textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-sm);
+    width: 100%;
+    resize: vertical;
+
+    &:focus {
+      outline: .2rem solid #111;
+    }
+  }
+
+  textarea {
+    min-height: 15rem;
+  }
+
+  button[type="submit"] {
+    cursor: pointer;
+    align-self: flex-start;
+  }
+}
+
+// Responsive text utilities
+@each $breakpoint, $min-width in $breakpoints {
+  @media (min-width: $min-width) {
+    // Text sizes
+    .text-#{$breakpoint}-xs { font-size: var(--font-size-xs); }
+    .text-#{$breakpoint}-sm { font-size: var(--font-size-sm); }
+    .text-#{$breakpoint}-base { font-size: var(--font-size-base); }
+    .text-#{$breakpoint}-lg { font-size: var(--font-size-lg); }
+    .text-#{$breakpoint}-xl { font-size: var(--font-size-xl); }
+    .text-#{$breakpoint}-2xl { font-size: var(--font-size-2xl); }
+    .text-#{$breakpoint}-3xl { font-size: var(--font-size-3xl); }
+    .text-#{$breakpoint}-4xl { font-size: var(--font-size-4xl); }
+    .text-#{$breakpoint}-5xl { font-size: var(--font-size-5xl); }
+    .text-#{$breakpoint}-6xl { font-size: var(--font-size-6xl); }
+
+    // Text alignment
+    .text-#{$breakpoint}-left { text-align: left; }
+    .text-#{$breakpoint}-center { text-align: center; }
+    .text-#{$breakpoint}-right { text-align: right; }
+    .text-#{$breakpoint}-justify { text-align: justify; }
+  }
+}

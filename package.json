@@ -11,7 +11,7 @@
       "copy": "npm-run-all --parallel copy:*",
       "watch:html": "onchange 'src/*.html' -- npm run copy:html",
       "sync:images": "rsync -a --delete --quiet src/images/ public/images",
-"watch:images": "onchange --add 'src/images/**/*.*' -- npm run sync:images --silent",
+      "watch:images": "onchange --add 'src/images/**/*.*' -- npm run sync:images --silent",
       "watch:sass": "sass  --no-source-map --watch src/scss:public/css",
       "watch": "npm-run-all --parallel watch:*",
       "serve": "browser-sync start --server public --files public",

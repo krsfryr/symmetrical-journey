@@ -1,0 +1,42 @@
+/* Base styles and variables */
+$primary-color: #111;
+$ghost-color: transparent;
+$btn-padding: 0.75rem 1.5rem;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+// ==============================
+// Section Base
+// ==============================
+
+section {
+  padding-block: var(--section-padding, 11.2rem);
+
+  &.hero {
+    padding-block: var(--section-padding, 11.2rem);
+    background: #f9f9f9;
+  }
+
+  &.footer {
+    padding-block: 2rem;
+    background: #111;
+    color: #fff;
+    text-align: center;
+  }
+
+  &.portfolio, &.testimonials {
+    background: #f5f5f5;
+  }
+}
+
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+

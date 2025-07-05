@@ -1,0 +1,102 @@
+// Knit CSS Framework - Grid System
+
+@use "sass:map";
+@use './root-styles' as *;
+
+// SCSS Variables for compilation (still needed for loops and calculations)
+$max-columns: 12; // Maximum number of columns/spans supported
+
+// Breakpoints (for media queries) - SCSS needs actual values, not CSS variables
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Container
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  width: 100%;
+}
+
+// Row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 var(--row-margin);
+}
+
+// Base column
+.col {
+  flex: 1;
+  padding: 0 var(--col-padding);
+  min-width: 0; // Prevents flex items from overflowing
+
+  // Span modifiers for base col class
+  @for $i from 2 through $max-columns {
+    &.span-#{$i} {
+      flex: $i;
+    }
+  }
+}
+
+// Responsive span classes for each breakpoint
+@each $breakpoint, $min-width in $breakpoints {
+  @media (min-width: #{$min-width}) {
+    .col {
+      @for $i from 2 through $max-columns {
+        &.span-#{$breakpoint}-#{$i} {
+          flex: $i;
+        }
+      }
+    }
+  }
+}
+
+// Mobile-first responsive behavior
+// On mobile, all columns stack by default
+@media (max-width: #{map.get($breakpoints, sm) - 1px}) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col {
+    flex: 1;
+    max-width: 100%;
+
+    // Reset all span classes on mobile
+    @for $i from 2 through $max-columns {
+      &.span-#{$i} {
+        flex: 1;
+      }
+    }
+  }
+}
+
+// No-gutters modifier (removes padding)
+.row.no-gutters {
+  margin: 0;
+
+  .col {
+    padding: 0;
+  }
+}
+
+// Utility classes for common layouts
+.row {
+  // Alignment utilities
+  &.justify-start { justify-content: flex-start; }
+  &.justify-center { justify-content: center; }
+  &.justify-end { justify-content: flex-end; }
+  &.justify-between { justify-content: space-between; }
+  &.justify-around { justify-content: space-around; }
+
+  &.align-start { align-items: flex-start; }
+  &.align-center { align-items: center; }
+  &.align-end { align-items: flex-end; }
+  &.align-stretch { align-items: stretch; }
+}

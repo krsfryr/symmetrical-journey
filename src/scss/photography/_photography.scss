@@ -1,0 +1,145 @@
+/* Base styles and variables */
+$primary-color: #111;
+$ghost-color: transparent;
+$btn-padding: 0.75rem 1.5rem;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.6rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 1;
+    padding: 1rem;
+}
+
+h1,
+h2 {
+    margin-bottom: 0.5rem;
+}
+
+/* Utility classes */
+.lead {
+    font-size: 1.4rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: $btn-padding;
+    border: 2px solid $primary-color;
+
+    &.primary {
+        background: $primary-color;
+        color: #fff;
+    }
+
+    &.ghost {
+        background: $ghost-color;
+        color: $primary-color;
+    }
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url('../../images/photography/hero-bg.jpg') center/cover no-repeat;
+    color: #fff;
+
+    .btn-row {
+        margin-top: 1rem;
+    }
+}
+
+/* Portfolio */
+.portfolio {
+    padding: 4rem 0;
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+
+        .grid-item {
+            display: block;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+}
+
+/* About */
+.about {
+    padding: 4rem 0;
+
+    .row {
+        align-items: center;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 4px;
+    }
+}
+
+/* Contact */
+.contact {
+    padding: 4rem 0;
+
+    form {
+        display: flex;
+        flex-direction: column;
+
+        input,
+        textarea {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    }
+}
+
+/* Footer */
+footer {
+    background: #f7f7f7;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,13 @@
+@use "../reset" as *;
+@use "./photography";
+
+:root, html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
