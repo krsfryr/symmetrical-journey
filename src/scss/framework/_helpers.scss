@@ -1,0 +1,3 @@
+@use './colors' as colors;
+
+@include colors.generate-bg-utilities-for(neutral);

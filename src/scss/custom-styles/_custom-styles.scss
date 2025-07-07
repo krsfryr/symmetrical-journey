@@ -1,6 +1,3 @@
-@use '../framework/colors' as colors;
-@include colors.generate-bg-utilities-for(neutral);
-
 /* Base styles and variables */
 $primary-color: var(--color-neutral-900);
 $ghost-color: transparent;
